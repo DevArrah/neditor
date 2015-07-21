@@ -18,6 +18,7 @@ Some Cool Features but unobvious features:
 	* you can configure all the colors to your liking by modifying the necro-colors.js file. This uses the same attributes as css  but as name values pairs. So width: 25px; would be 'width' : '25px'. Notice the single quotes around width and 25px. Look more at the JSS library if this is confusing. 
 	
 The neditor makes use of the following open source libraries and their dependencies:
+
 	* JSS ( https://github.com/Box9/jss )
 	* Pure Buttons ( http://purecss.io/buttons/ )
 	* Medium.js ( http://jakiestfu.github.io/Medium.js/docs/ )
