@@ -228,7 +228,7 @@ TextRunFormattingMediator.prototype.generateMarkUp = function( topElement, resul
 TextRunFormattingMediator.prototype.generateMarkUpFor = function( run, topElement ){
 	var formatting = { 'color' : '', 'bold' : '', 'underline': '', 'italics':'' };
 	var currentElement = run.domNode.parentElement;
-	while ( !currentElement.isSameNode( topElement ) ){
+	while ( !currentElement.isEqualNode( topElement ) ){
 		var className = currentElement.className;
 		if ( className !='' ){
 			if (formatting.color == '' && ( className == 'hired' || className == 'hiblue' || className == 'higreen' || className == 'hicyan' || className == 'himagenta' || className == 'hiblack' || className == 'brown' || className == 'yellow' || className == 'red' || className == 'blue' || className == 'green' || className == 'cyan' || className == 'magenta' ) ){
@@ -270,7 +270,7 @@ TextRunFormattingMediator.prototype.generateMarkUpAlt = function( topElement, re
 TextRunFormattingMediator.prototype.getStyleMarkupFor = function( run, topElement ){
 	var formatting = { 'color' : '', 'bold' : '', 'underline': '', 'italics':'' };
 	var currentElement = run.domNode.parentElement;
-	while ( !currentElement.isSameNode( topElement ) ){
+	while ( !currentElement.isEqualNode( topElement ) ){
 		var className = currentElement.className;
 		if ( className !='' ){
 			if (formatting.color == '' && ( className == 'hired' || className == 'hiblue' || className == 'higreen' || className == 'hicyan' || className == 'himagenta' || className == 'hiblack' || className == 'brown' || className == 'yellow' || className == 'red' || className == 'blue' || className == 'green' || className == 'cyan' || className == 'magenta' ) ){
