@@ -23,7 +23,7 @@ TextRun.prototype.applyBreakAt = function ( index ){
 	console.log( 'inserting text' );
 	this.insertBefore( document.createElement('BR') );
 	var updateText = this.text.substring( index );
-	if (updateText.substring(0,1) == 1) updateText = '\xA0' + updateText.substring(1);
+	if (updateText.substring(0,1) == ' ') updateText = '\xA0' + updateText.substring(1);
 	this.updateText( updateText );
 };
 
@@ -211,48 +211,6 @@ TextRunFormattingMediator.prototype.applyGutter = function (){
 		}
 		currentRun = currentRun.nextRun;
 	}
-}
-
-TextRunFormattingMediator.prototype.generateMarkUp = function( topElement, resultElement ){
-	var currentRun = this.run.firstRun();
-	while (currentRun != null ){
-		if ( currentRun.domNode.nodeName == 'BR'){
-			resultElement.appendChild( document.createElement('BR') );
-		} else {
-			resultElement.appendChild( document.createTextNode( this.generateMarkUpFor( currentRun, topElement) ) );
-		}
-		currentRun = currentRun.nextRun;
-	}
-}
-
-TextRunFormattingMediator.prototype.generateMarkUpFor = function( run, topElement ){
-	var formatting = { 'color' : '', 'bold' : '', 'underline': '', 'italics':'' };
-	var currentElement = run.domNode.parentNode;
-	while ( !currentElement.isEqualNode( topElement ) ){
-		var className = currentElement.className;
-		if ( className !='' ){
-			if (formatting.color == '' && ( className == 'hired' || className == 'hiblue' || className == 'higreen' || className == 'hicyan' || className == 'himagenta' || className == 'hiblack' || className == 'brown' || className == 'yellow' || className == 'red' || className == 'blue' || className == 'green' || className == 'cyan' || className == 'magenta' ) ){
-				formatting.color = className;
-			} else if ( formatting.bold =='' && className == 'hilight'){
-				formatting.bold = className;
-			} else if ( formatting.underline == '' && className == 'underline' ){
-				formatting.underline = className;
-			} else if ( formatting.italics == '' && className == 'italics' ){
-				formatting.italics = className;
-			}
-		}
-		currentElement = currentElement.parentNode;
-	}
-	var result = run.text;
-	if ( formatting.color != '' || formatting.bold != '' || formatting.underline != '' || formatting.italics != ''){
-			var options = new Array();
-			if ( formatting.color != '' ) options.push( formatting.color );
-			if ( formatting.bold != '' ) options.push( formatting.bold );
-			if ( formatting.underline != '' ) options.push( formatting.underline );
-			if ( formatting.italics != '' ) options.push( formatting.italics );
-			result = '@' + options.join('+') + ':' + result + '@';
-	}
-	return result;
 }
 
 TextRunFormattingMediator.prototype.generateMarkUpAlt = function( topElement, resultElement ){
