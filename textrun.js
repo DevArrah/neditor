@@ -227,7 +227,7 @@ TextRunFormattingMediator.prototype.generateMarkUp = function( topElement, resul
 
 TextRunFormattingMediator.prototype.generateMarkUpFor = function( run, topElement ){
 	var formatting = { 'color' : '', 'bold' : '', 'underline': '', 'italics':'' };
-	var currentElement = run.domNode.parentElement;
+	var currentElement = run.domNode.parentNode;
 	while ( !currentElement.isEqualNode( topElement ) ){
 		var className = currentElement.className;
 		if ( className !='' ){
@@ -241,7 +241,7 @@ TextRunFormattingMediator.prototype.generateMarkUpFor = function( run, topElemen
 				formatting.italics = className;
 			}
 		}
-		currentElement = currentElement.parentElement;
+		currentElement = currentElement.parentNode;
 	}
 	var result = run.text;
 	if ( formatting.color != '' || formatting.bold != '' || formatting.underline != '' || formatting.italics != ''){
@@ -269,7 +269,7 @@ TextRunFormattingMediator.prototype.generateMarkUpAlt = function( topElement, re
 
 TextRunFormattingMediator.prototype.getStyleMarkupFor = function( run, topElement ){
 	var formatting = { 'color' : '', 'bold' : '', 'underline': '', 'italics':'' };
-	var currentElement = run.domNode.parentElement;
+	var currentElement = run.domNode.parentNode;
 	while ( !currentElement.isEqualNode( topElement ) ){
 		var className = currentElement.className;
 		if ( className !='' ){
@@ -283,7 +283,7 @@ TextRunFormattingMediator.prototype.getStyleMarkupFor = function( run, topElemen
 				formatting.italics = className;
 			}
 		}
-		currentElement = currentElement.parentElement;
+		currentElement = currentElement.parentNode;
 	}
 	var result = '';
 	if ( formatting.color != '' || formatting.bold != '' || formatting.underline != '' || formatting.italics != ''){
@@ -306,7 +306,7 @@ TextRunFormattingMediator.prototype.processContinguousStyleRun = function( run, 
 	var lastTextNodeIndex = null;
 	var lastRun = null;
 	
-	while ( currentRun !== null && currentRun.domNode.parentElement == run.domNode.parentElement ){
+	while ( currentRun !== null && currentRun.domNode.parentNode == run.domNode.parentNode ){
 		lastRun = currentRun;
 		if ( currentRun.domNode.nodeName == 'BR'){
 			nodesToAppend.push( document.createElement('BR') );
