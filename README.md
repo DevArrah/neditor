@@ -2,7 +2,9 @@
 A browser-based wysiwyg rich text editor that can translate those styles to nedit mark up. 
 
 # Using Neditor
-To use, double click on the index.html file to open it in your favorite browser. Then enter some text and apply some styles. 
+No installation is required... Just download [The neditor](https://github.com/DevArrah/neditor/archive/master.zip) to you desktop, unzip the file, and double click on the index.html file. This will open it up in your favorite browser.
+
+Then enter some text and apply some styles. 
 
 When you are done styling your text, you click on **Apply Formatting**.
 
