@@ -1,0 +1,119 @@
+<html>
+<head>
+		<style>
+			.toolbar {
+				font-size: xx-large;	
+			}
+			button.pure-button.tbbutton{
+				border-radius: 10px;
+				text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+				font-size: 125%;
+				padding: 5px 15px;
+				background-color: #C6C6C6;
+				margin-top: 10px;
+			}
+		</style>
+        <script src="rangy-core.js"></script>
+        <script src="rangy-classapplier.js"></script>
+        <script src="undo.js"></script>
+        <script src="medium.js"></script>
+		<script src="jss.js"></script>
+		<script src="necro_colors.js"></script>
+		<script src="applycolorscheme.js"></script>
+		<script src="textrun.js"></script>
+		<script src="nedditor.js"></script>
+        <link rel="stylesheet" href="medium.css">
+		<link rel="stylesheet" href="docs.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+</head>
+<body class='background'>
+
+ <div class="toolbar-top">
+	<button class="yellow pure-button tbbutton" title="yellow">T</button>
+	<button class="brown pure-button tbbutton" title="yellow">H</button>
+	<button class="red pure-button tbbutton" title="red">E</button>
+	<button class="blue pure-button tbbutton" title="blue">N</button>
+	<button class="green pure-button tbbutton" title="green">E</button>
+	<button class="cyan pure-button tbbutton" title="cyan">D</button>
+	<button class="magenta pure-button tbbutton" title="magenta">D</button>
+	<button class="hired pure-button tbbutton" title="hired">I</button>
+	<button class="hiblue pure-button tbbutton" title="hiblue">T</button>
+	<button class="higreen pure-button tbbutton" title="higreen">O</button>
+	<button class="hicyan pure-button tbbutton" title="hicyan">R</button>
+	<button class="himagenta pure-button tbbutton" title="himagenta">R</button>
+	<button class="hiblack pure-button tbbutton" title="hiblack">O</button>
+	<button class="hilite pure-button tbbutton" title="hilite">C</button>
+	<button class="underline pure-button tbbutton" title="underline">K</button>
+	<button class="italics pure-button tbbutton" title="italics">S</button>
+	<br />
+	<button class="formatting pure-button tbbutton pure-button-primary" title="Apply Formatting">Apply Formatting</button>
+	<button class="markup pure-button tbbutton pure-button-primary" title="Generate Markup">Generate Markup</button>
+  </div>
+  <div id="rich_with_invoke_element" class="article demo editorfont defaultfg defaultbg" style="text-align: left">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Fusce rutrum dapibus dictum?!?!?. Etiam tempor a enim id sagittis. Donec sodales varius elementum. In iaculis consequat enim, et pellentesque erat accumsan ut. Nulla nec lacus nisi.&nbsp;&nbsp;&nbsp;Nullam id interdum risus, sit amet sollicitudin ipsum. Ut vitae rutrum nulla.<br>
+<br>Vivamus eget dolor est. Donec lobortis felis metus, vel placerat nunc iaculis id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eu neque dictum, pulvinar massa faucibus, accumsan diam. Vestibulum pharetra massa dolor, ut tincidunt nisl suscipit vitae.
+  </div>
+  <h3>Nedit Markup</h3>
+  <div id="results" class="article demo" caption="result" style="border: 2px solid black;border-radius: 10px;margin: 10px;" >
+  <br />
+  </div>
+ <script>
+	 
+(function(){
+	function processStyle( container, medium, article, selector ){
+		//console.log( selector );
+		container.querySelector( selector ).onmousedown = function() {
+			article.highlight();
+			
+			medium.invokeElement('span', {
+				title: "I'm "+selector,
+				className: selector.replace( ".", "" )
+			});
+			medium.makeUndoable();
+			return false;
+		};		
+	}
+
+	console.log('here');
+	var article = document.getElementById('rich_with_invoke_element'),
+		container = article.parentNode,
+	    medium = new Medium({
+	        element: article,
+	        mode: Medium.richMode,
+	        placeholder: 'Your Article',
+	        attributes: null,
+	        tags: null,
+		    pasteAsText: false
+	    });
+
+
+		article.highlight = function() {
+		if (document.activeElement !== article) {
+			medium.select();
+		}
+	};
+
+	processStyle( container, medium, article, '.hired' );
+	processStyle( container, medium, article, '.hiblue' );
+	processStyle( container, medium, article, '.higreen' );
+	processStyle( container, medium, article, '.hicyan' );
+	processStyle( container, medium, article, '.himagenta' );
+	processStyle( container, medium, article, '.hilite' );
+	processStyle( container, medium, article, '.brown' );
+	processStyle( container, medium, article, '.yellow' );
+	processStyle( container, medium, article, '.red' );
+	processStyle( container, medium, article, '.blue' );
+	processStyle( container, medium, article, '.green' );
+	processStyle( container, medium, article, '.cyan' );
+	processStyle( container, medium, article, '.magenta' );
+	processStyle( container, medium, article, '.hiblack' );
+	processStyle( container, medium, article, '.italics' );
+	processStyle( container, medium, article, '.underline' );
+	container.querySelector( '.formatting' ).onmousedown = function(){
+		checkFormatting( medium );
+	};
+	container.querySelector( '.markup' ).onmousedown = generateMarkup;
+})();
+</script> 
+ </body>
+ </html>
