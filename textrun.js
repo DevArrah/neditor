@@ -1,4 +1,5 @@
 function TextRun( domNode, prevRun ){
+	//added comment
 	this.domNode = domNode;
 	this.nextRun = null;
 	this.previousRun = prevRun;
