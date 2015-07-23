@@ -18,9 +18,9 @@ TextRun.prototype.updateText = function( text ){
 
 TextRun.prototype.applyBreakAt = function ( index ){
 	var preBreakNode = document.createTextNode( this.text.substring(0, index) );
-	console.log( 'inserting text' );
+	//console.log( 'inserting text' );
 	this.insertBefore( preBreakNode );
-	console.log( 'inserting text' );
+	//console.log( 'inserting text' );
 	this.insertBefore( document.createElement('BR') );
 	var updateText = this.text.substring( index );
 	if (updateText.substring(0,1) == ' ') updateText = '\xA0' + updateText.substring(1);
@@ -28,8 +28,8 @@ TextRun.prototype.applyBreakAt = function ( index ){
 };
 
 TextRun.prototype.insertBefore = function ( newDomNode ){
-	console.debug( this );
-	console.debug( newDomNode );
+	//console.debug( this );
+	//console.debug( newDomNode );
 	var newNode = this.domNode.parentNode.insertBefore( newDomNode, this.domNode );
 	var newRun = new TextRun( newNode, this.previousRun );
 	newRun.nextRun = this;
@@ -170,12 +170,17 @@ TextRunFormattingMediator.prototype.calculateWhereToBreak = function( currentRun
 
 TextRunFormattingMediator.prototype.findSpaceInRun = function( currentRun, charCount ){
 	var result;
-	console.log('TextRunFormattingMediator.prototype.findSpaceInRun');
-	console.log( charCount );
+	//console.log('TextRunFormattingMediator.prototype.findSpaceInRun');
+	//console.log( charCount );
 	var lastSpaceInCurrentRun = currentRun.findLastSpaceInRun( charCount );
-	console.log( lastSpaceInCurrentRun );
-	if (  lastSpaceInCurrentRun !==null ){
-		currentRun.applyBreakAt( lastSpaceInCurrentRun );
+	//console.log( lastSpaceInCurrentRun );
+	//var debug = currentRun.text.length;
+	if (lastSpaceInCurrentRun == 0 && currentRun.text.length == charCount + 1){
+		//if the space is the first character and the run is max run +1, this is result of applying the gutter space so we let it slide. 
+		result = currentRun.nextRun;
+	}
+	else if ( lastSpaceInCurrentRun !==null ){
+		currentRun.applyBreakAt( lastSpaceInCurrentRun == 0 ? charCount :  lastSpaceInCurrentRun );
 		result = currentRun.previousRun;
 	}
 	return result;
