@@ -39,5 +39,7 @@ function selectText(containerid) {
 
 function convertNedit2ToHTML(){
 	var article = document.getElementById('rich_with_invoke_element');
-	var converter = NeditToHTMLConverter();
+	var runner = new DOMRunner( article );
+	var converter = new NeditToHTMLConverter( runner );
+	converter.convertNeditMarkup();
 }

@@ -5,7 +5,7 @@ function TextRunFormattingMediator ( domRunner ) {
 }
 
 TextRunFormattingMediator.prototype.hardWrapRunsAt = function (numOfChars){
-	console.log('TextRunFormattingMediator.prototype.hardWrapRunsAt');
+	//console.log('TextRunFormattingMediator.prototype.hardWrapRunsAt');
 	this.currentLineCharCount = 0;
 	var currentRun = this.run.firstRun();
 	while ( currentRun !== null ){
@@ -21,7 +21,7 @@ TextRunFormattingMediator.prototype.hardWrapRunsAt = function (numOfChars){
 			this.currentLineCharCount += currentRun.text.length;
 		}
 		else {
-			console.log( 'split the node' );
+			//console.log( 'split the node' );
 			nextRun = this.calculateWhereToBreak( currentRun, numOfChars - this.currentLineCharCount);
 		}
 		currentRun = nextRun;
@@ -31,7 +31,7 @@ TextRunFormattingMediator.prototype.hardWrapRunsAt = function (numOfChars){
 
 
 TextRunFormattingMediator.prototype.calculateWhereToBreak = function( currentRun, charCount ){
-	console.log('TextRunFormattingMediator.prototype.calculateWhereToBreak');
+	//console.log('TextRunFormattingMediator.prototype.calculateWhereToBreak');
 	var originalRun = currentRun;
 	var result = this.findSpaceInRun( currentRun, charCount);
 	if (  result == null ){
@@ -44,16 +44,16 @@ TextRunFormattingMediator.prototype.calculateWhereToBreak = function( currentRun
 			result = originalRun.previousRun;
 		} 	
 	}
-	console.log( result );
+	//console.log( result );
 	return result;
 }
 
 TextRunFormattingMediator.prototype.findSpaceInRun = function( currentRun, charCount ){
 	var result;
-	console.log('TextRunFormattingMediator.prototype.findSpaceInRun');
-	console.log( charCount );
+	//console.log('TextRunFormattingMediator.prototype.findSpaceInRun');
+	//console.log( charCount );
 	var lastSpaceInCurrentRun = currentRun.findLastSpaceInRun( charCount );
-	console.log( lastSpaceInCurrentRun );
+	//console.log( lastSpaceInCurrentRun );
 	if (  lastSpaceInCurrentRun !==null ){
 		currentRun.applyBreakAt( lastSpaceInCurrentRun );
 		result = currentRun.previousRun;

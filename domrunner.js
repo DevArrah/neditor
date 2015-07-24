@@ -1,4 +1,5 @@
 function DOMRunner( parentNode ){
+	parentNode.normalize();
 	this.parentNode = parentNode;
 	this.firstRun = this.traverseDOMForTextRuns( parentNode, null).firstRun();
 }

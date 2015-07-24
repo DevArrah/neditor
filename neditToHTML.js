@@ -1,24 +1,40 @@
-function NeditToHTMLConverter(){}
-
-NeditToHTMLConverter.prototype.convertChildParentNodes = function( article ){
-
-	
+function NeditToHTMLConverter( runner ){
+	this.firstRun = runner.firstRun;
 }
 
-NeditToHTMLConverter.prototype.traverseDOMForTextRuns = function( node, currentStyle ){
-	if ( node.childNodes.length > 0 ){
-		for( var i = 0; i < node.childNodes.length; i++){
-				currentStyle = this.traverseDOMForTextRuns( node.childNodes[i], currentRun );
+NeditToHTMLConverter.prototype.convertNeditMarkup = function(  ){
+	var currentRun = this.firstRun;
+	var currentParent = this.firstRun.domNode.parentNode;
+	
+	while (currentRun != null){
+		var nextRun = currentRun.nextRun;
+		var text = currentRun.text;
+		if ( text.indexOf('@') > -1 ){
+			var punctuationRegex = /@[a-zA-Z+]+:[^@]+@?/gi
+			var matches = text.match( punctuationRegex );
+			var indices = new Array();
+			if ( matches !=  null && matches.length != 0 ){		
+				var match;
+				while ( match = punctuationRegex.exec( text ) ){
+					indices.push( match.index );
+				}
+				var segment = new Array();
+				var currentRunIndex = 0;
+				for ( var i = 0; i < matches.length; i++ ){
+					if (currentRunIndex < indices[i]){
+						segment.push( text.substring( currentRunIndex, indices[i]) );
+					}
+					segment.push( matches[i] );
+					currentRunIndex = indices[i] + matches[i].length ;
+				}
+				if (currentRunIndex < text.length) segment.push( text.substr( currentRunIndex ) );
+				console.log( segment );
+				currentRun = null;
+			} else {
+				
+			}
+			
 		}
-	} else if (node.nodeType == 3 || node.nodeName == 'BR'){
-		currentStyle = this.processTextNodeForStyles( node, currentStyle );
-	}
-	return currentStyle;
-}
-
-NeditToHTMLConverter.prototype.processTextNodeForStyles = function( node, currentStyle ){
-	
-	if ( node.textContent.indexOf('@')> -1 ){
-		
+		currentRun = nextRun;
 	}
 }
