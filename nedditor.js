@@ -4,7 +4,8 @@ function checkFormatting( medium ){
 	article.normalize(); 
 	var charCountForLine = 0;
 	console.log( 'beginning check' );
-	var formatter = new TextRunFormattingMediator( article );
+	var runner = new DOMRunner( article );
+	var formatter = new TextRunFormattingMediator( runner );
 	formatter.applySpacingAfterPunctuation();
 	formatter.hardWrapRunsAt( breakAtChar );
 	formatter.applyGutter();
@@ -15,7 +16,8 @@ function checkFormatting( medium ){
 function generateMarkup(){
 	var article = document.getElementById('rich_with_invoke_element');
 	var result = document.getElementById('results');
-	var formatter = new TextRunFormattingMediator( article );
+	var runner = new DOMRunner( article );
+	var formatter = new TextRunFormattingMediator( runner );
 	while (result.firstChild) {
 		result.removeChild(result.firstChild);
 	}
@@ -37,4 +39,5 @@ function selectText(containerid) {
 
 function convertNedit2ToHTML(){
 	var article = document.getElementById('rich_with_invoke_element');
+	var converter = NeditToHTMLConverter();
 }
