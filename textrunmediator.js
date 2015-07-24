@@ -1,6 +1,6 @@
-function TextRunFormattingMediator ( parentNode ) {
-	this.run = this.traverseDOMForTextRuns( parentNode, null).firstRun();
-	this.parentNode = parentNode;
+function TextRunFormattingMediator ( domRunner ) {
+	this.run = domRunner.firstRun; 
+	this.parentNode = domRunner.parentNode;
 	this.currentLineCharCount = 0;
 }
 
@@ -67,17 +67,6 @@ TextRunFormattingMediator.prototype.applySpacingAfterPunctuation = function(){
 		currentRun.correctSpacing();
 		currentRun = currentRun.nextRun;
 	} while (currentRun !== null);	
-}
-
-TextRunFormattingMediator.prototype.traverseDOMForTextRuns = function( node, currentRun ){
-	if ( node.childNodes.length > 0 ){
-		for( var i = 0; i < node.childNodes.length; i++){
-				currentRun = this.traverseDOMForTextRuns( node.childNodes[i], currentRun );
-		}
-	} else if (node.nodeType == 3 || node.nodeName == 'BR'){
-		currentRun = new TextRun( node, currentRun );
-	}
-	return currentRun;
 }
 
 TextRunFormattingMediator.prototype.applyGutter = function (){
