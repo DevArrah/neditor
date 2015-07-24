@@ -9,32 +9,8 @@ function checkFormatting( medium ){
 	formatter.hardWrapRunsAt( breakAtChar );
 	formatter.applyGutter();
 	medium.makeUndoable();
-//	var firstRun = processDOMNode( article, null ).firstRun();
-//	applySpacingAfterPunctuationToRuns( firstRun );
-	
-//	spacer.hardWrapRunsAt( breakAtChar );
 }
 
-// function applySpacingAfterPunctuationToRuns( aRun ){
-	// var currentRun = aRun.firstRun();
-	// do {
-		// currentRun.correctSpacing();
-		// currentRun = currentRun.nextRun;
-	// } while (currentRun !== null);
-	
-// }
-
-
-// function processDOMNode(node, currentRun){
-	// if ( node.childNodes.length > 0 ){
-		// for( var i = 0; i < node.childNodes.length; i++){
-				// currentRun = processDOMNode( node.childNodes[i], currentRun );
-		// }
-	// } else if (node.nodeType == 3 || node.nodeName == 'BR'){
-		// currentRun = new TextRun( node, currentRun );
-	// }
-	// return currentRun;
-// }
 
 function generateMarkup(){
 	var article = document.getElementById('rich_with_invoke_element');
@@ -57,4 +33,8 @@ function selectText(containerid) {
 		range.selectNode(document.getElementById(containerid));
 		window.getSelection().addRange(range);
 	}
+}
+
+function convertNedit2ToHTML(){
+	var article = document.getElementById('rich_with_invoke_element');
 }

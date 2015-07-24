@@ -1,0 +1,89 @@
+  Here is the information about 'Format2' master.
+
+ @hicyan:*@ Format for areas:
+ 
+ @hicyan:Area@       : Necromancer's Guild (Pinnacle)
+ @himagenta:Creator@    : Tensor
+ 
+ A wild and crazy place where you will find all manner of entertaining
+ and bizarre creatures.  Check out the fun and exciting games that
+ the guild provides and take advantage of its wealth of information.
+ You can frequently find Gaminol (500k) idling around in the lord room
+ chatting with Lauranna (750k).  Diligent searchers may even find
+ Moonwallace (900k) guarding the Well of Binding.
+ 
+  @hilite:See also:@  gaminol (monsters)        lauranna (monsters)
+             moonwallace (monsters)    staff_impatience (weapons)
+             amulet_meanness (armour)  impatience_orbs (items)
+  
+ @yellow:------------------------------------------------------------------@
+ @hicyan:*@ Format for monsters:
+ 
+ @hicyan:Name@       :  Gaminol
+ @higreen:Value@      :  500k
+ @yellow:Realm@      :  Pinnacle
+ @himagenta:Area@       :  Necromancer's Guild (Tensor)
+ 
+ Gaminol, the Master of hellfire, is a fearsome vamp who serves as an
+ Advocate Guild Master in the Necromancer's Guild.  He wields a
+ fearsome Staff of Impatience.  He is a difficult kill, not because he
+ hits hard or has a lot of hp but because he runs away from fights and
+ rope tricks frequently.  Seek him in the Necromancer's guild, where
+ he is likely to be flapping or bugging Moonwallace and Lauranna.
+ 
+  @hilite:See also:@  necromancer_guild (areas)  staff_impatience (weapons)
+             impatience_orbs (items)
+ 
+ @yellow:----------------------------------------------------------------@
+ @hicyan:*@ Format for weapons:
+ 
+ @hicyan:Name@       :  Staff of Impatience (tm)
+ @higreen:Owner@      :  Gaminol (500k)
+ @yellow:Area@       :  Necromancer's Guild (Tensor)
+ @himagenta:Frequency@  :  Unique
+ 
+ The Staff of Impatience (tm) is the powerful staff of Gaminol.  It is
+ tipped with taloned receptacle into which the wielder can insert one
+ of many interchangable orbs.  The orbs give the staff the power of
+ versatility in function.  Gaminol guards this staff jealously and
+ uses it frequently, although on occasion he will lend it to his
+ fellow admin or trade it for the Whip of Testiness (tm).
+ 
+  @hilite:See also:@  necromancer_guild (areas), gaminol (monsters)
+
+ @yellow:----------------------------------------------------------------@
+ @hicyan:*@ Format for armour:
+ 
+ @hicyan:Name@       :  Amulet of Meanness (tm)
+ @higreen:Owner@      :  Lauranna (700k)
+ @yellow:Area@       :  Necromancer's Guild (Tensor)
+ @himagenta:Frequency@  :  Unique
+ 
+ Not much is known about this amulet other than Lauranna wears it
+ around her neck frequently.  It is suspected that it induces her
+ otherwise angelic personality to cackle and grin evilly.
+ 
+  @hilite:See also:@  necromancer_guild (areas), lauranna (monsters)
+ 
+ @yellow:----------------------------------------------------------------@
+ @hicyan:*@ Format for items:
+ 
+ @hicyan:Name@       :  Impatience Orbs
+ @higreen:Owner@      :  Gaminol (500k)
+ @yellow:Area@       :  Necromancer's Guild (Tensor)
+ @himagenta:Frequency@  :  Unknown
+ 
+ These orbs complement Gaminol's Staff of Impatience.  Little is known
+ about their function, or even the number of orbs in existence.  Their
+ exact characteristics are likely to vary over time depending on
+ Gaminol's memory and his whims.  The following orbs are known:
+ 
+ Iridescent Orb of No-Ports-For You 
+ Greenbean Orb of Troublesome Marquis Bopping
+ Crimson Orb of Troublemaking
+ 
+  @hilite:See also:@  necromancer_guild (areas), gaminol (monsters)
+ 
+ @yellow:----------------------------------------------------------------@
+ 
+  @hilite:See also:@  format (general)    submit (general)
