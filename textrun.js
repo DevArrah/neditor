@@ -62,7 +62,7 @@ TextRun.prototype.correctSpacing = function (){
 	var indices = new Array();
 	var matchRuns = nodeText.match( punctuationRegex );
 	if ( matchRuns !== null ){
-		indices =  this.getIndicesOfRegexMatches( nodeText , punctuationRegex);
+		indices =  this.getIndicesOfRegexMatches( nodeText , punctuationRegex );
 		var fullRuns = new Array();
 		var startPos = 0;
 		
