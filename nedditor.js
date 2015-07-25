@@ -91,7 +91,7 @@ function convertNedit2ToHTML(){
 		}
 		var lines = text.split('\n');  
 		for (var j = 0; j < lines.length; j++ ){
-			var textNode = document.createTextNode( lines[j].replace(' ','\xA0').replace('@@','@') );
+			var textNode = document.createTextNode( lines[j].replace(' ','\xA0'));
 			if (textNode.textContent !='') currentParent.appendChild( textNode );
 			if ( j != lines.length - 1) currentParent.appendChild( document.createElement('BR') );
 		}
