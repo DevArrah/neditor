@@ -5,7 +5,7 @@ function NeditToHTMLConverter( runner ){
 NeditToHTMLConverter.prototype.convertNeditMarkup = function(  ){
 	var currentRun = this.firstRun;
 	var currentParent = this.firstRun.domNode.parentNode;
-	
+	console.log( currentParent.textContent );
 	while (currentRun != null){
 		var nextRun = currentRun.nextRun;
 		var text = currentRun.text;
