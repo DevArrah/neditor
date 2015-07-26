@@ -107,7 +107,7 @@ TextRunFormattingMediator.prototype.getStyleMarkupFor = function( run, topElemen
 		if ( className !='' ){
 			if (formatting.color == '' && ( className == 'hired' || className == 'hiblue' || className == 'higreen' || className == 'hicyan' || className == 'himagenta' || className == 'hiblack' || className == 'brown' || className == 'yellow' || className == 'red' || className == 'blue' || className == 'green' || className == 'cyan' || className == 'magenta' ) ){
 				formatting.color = className;
-			} else if ( formatting.bold =='' && className == 'hilight'){
+			} else if ( formatting.bold =='' && className == 'hilite'){
 				formatting.bold = className;
 			} else if ( formatting.underline == '' && className == 'underline' ){
 				formatting.underline = className;
