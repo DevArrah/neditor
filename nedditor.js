@@ -4,42 +4,20 @@ function checkFormatting( medium ){
 	article.normalize(); 
 	var charCountForLine = 0;
 	console.log( 'beginning check' );
-	var formatter = new TextRunFormattingMediator( article );
+	var runner = new DOMRunner( article );
+	var formatter = new TextRunFormattingMediator( runner );
 	formatter.applySpacingAfterPunctuation();
 	formatter.hardWrapRunsAt( breakAtChar );
 	formatter.applyGutter();
 	medium.makeUndoable();
-//	var firstRun = processDOMNode( article, null ).firstRun();
-//	applySpacingAfterPunctuationToRuns( firstRun );
-	
-//	spacer.hardWrapRunsAt( breakAtChar );
 }
 
-// function applySpacingAfterPunctuationToRuns( aRun ){
-	// var currentRun = aRun.firstRun();
-	// do {
-		// currentRun.correctSpacing();
-		// currentRun = currentRun.nextRun;
-	// } while (currentRun !== null);
-	
-// }
-
-
-// function processDOMNode(node, currentRun){
-	// if ( node.childNodes.length > 0 ){
-		// for( var i = 0; i < node.childNodes.length; i++){
-				// currentRun = processDOMNode( node.childNodes[i], currentRun );
-		// }
-	// } else if (node.nodeType == 3 || node.nodeName == 'BR'){
-		// currentRun = new TextRun( node, currentRun );
-	// }
-	// return currentRun;
-// }
 
 function generateMarkup(){
 	var article = document.getElementById('rich_with_invoke_element');
 	var result = document.getElementById('results');
-	var formatter = new TextRunFormattingMediator( article );
+	var runner = new DOMRunner( article );
+	var formatter = new TextRunFormattingMediator( runner );
 	while (result.firstChild) {
 		result.removeChild(result.firstChild);
 	}
@@ -57,4 +35,24 @@ function selectText(containerid) {
 		range.selectNode(document.getElementById(containerid));
 		window.getSelection().addRange(range);
 	}
+}
+
+function convertNedit2ToHTML(){
+	var article = document.getElementById('rich_with_invoke_element');
+	article.normalize();
+	var converter = new NeditToHTMLConverter();
+	converter.convertNeditMarkup( article.textContent, article );
+	//var runner = new DOMRunner( article );
+	//var converter = new NeditToHTMLConverter( runner );
+	//converter.convertNeditMarkup();
+}
+
+function useTemplate(){
+	var article = document.getElementById('rich_with_invoke_element');
+	var templateName = document.getElementById('menuLink1').textContent;
+	var converter = new NeditToHTMLConverter();
+	converter.convertNeditMarkup( necrotemplate[templateName], article );
+	
+	
+	
 }
