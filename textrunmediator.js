@@ -54,8 +54,13 @@ TextRunFormattingMediator.prototype.findSpaceInRun = function( currentRun, charC
 	//console.log( charCount );
 	var lastSpaceInCurrentRun = currentRun.findLastSpaceInRun( charCount );
 	//console.log( lastSpaceInCurrentRun );
-	if (  lastSpaceInCurrentRun !==null ){
-		currentRun.applyBreakAt( lastSpaceInCurrentRun );
+	//var debug = currentRun.text.length;
+	if (lastSpaceInCurrentRun == 0 && currentRun.text.length == charCount + 1){
+		//if the space is the first character and the run is max run +1, this is result of applying the gutter space so we let it slide. 
+		result = currentRun.nextRun;
+	}
+	else if ( lastSpaceInCurrentRun !==null ){
+		currentRun.applyBreakAt( lastSpaceInCurrentRun == 0 ? charCount :  lastSpaceInCurrentRun );
 		result = currentRun.previousRun;
 	}
 	return result;
