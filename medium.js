@@ -746,6 +746,7 @@ Medium.prototype = {
 
 					//encode the text first
 					text = utils.encodeHtml(text);
+					text = text.replace(/ /g, '\xA0');
 
 					//cut down it's length
 					totalLength = text.length + length;

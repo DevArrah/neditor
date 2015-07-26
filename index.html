@@ -26,6 +26,7 @@
 		<script src="textrunmediator.js"></script>
 		<script src="neditToHTML.js"></script>
 		<script src="nedditor.js"></script>
+		<script src="necrotemplate.js"></script>
         <link rel="stylesheet" href="medium.css">
 		<link rel="stylesheet" href="docs.css">
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -54,6 +55,19 @@
 	<button class="formatting pure-button tbbutton pure-button-primary" title="Apply Formatting">Apply Formatting</button>
 	<button class="markup pure-button tbbutton pure-button-primary" title="Generate Markup">Generate Markup</button>
 	<button class="convert pure-button tbbutton pure-button-primary" title="Generate Markup">Convert Nedit2</button>
+	<div class="pure-menu pure-menu-horizontal">
+		<ul class="pure-menu-list">
+			<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+				<a href="#" id="menuLink1" class="pure-menu-link">Area</a>
+					<ul class="pure-menu-children" id='templatemenu'>
+					</ul>
+			</li>
+		</ul>
+		<button class="template pure-button tbbutton pure-button-primary" title="Use Template">Use Template</button>
+	</div>
+				
+	
+	
   </div>
   <div id="rich_with_invoke_element" class="article demo editorfont defaultfg defaultbg" style="text-align: left">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Fusce rutrum dapibus dictum?!?!?. Etiam tempor a enim id sagittis. Donec sodales varius elementum. In iaculis consequat enim, et pellentesque erat accumsan ut. Nulla nec lacus nisi.&nbsp;&nbsp;&nbsp;Nullam id interdum risus, sit amet sollicitudin ipsum. Ut vitae rutrum nulla.<br>
 <br>Vivamus eget dolor est. Donec lobortis felis metus, vel placerat nunc iaculis id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eu neque dictum, pulvinar massa faucibus, accumsan diam. Vestibulum pharetra massa dolor, ut tincidunt nisl suscipit vitae.
@@ -78,6 +92,34 @@
 			return false;
 		};		
 	}
+	function addTemplate( name ){
+		var menuElement = document.getElementById('templatemenu');
+		
+		var menuItem = document.createElement('LI')
+		var classAttr = document.createAttribute("class");
+		classAttr.value = 'pure-menu-item';
+		menuItem.setAttributeNode(classAttr);
+		menuElement.appendChild( menuItem );
+		
+		var anchor = document.createElement('A');
+		classAttr = document.createAttribute("href");
+		classAttr.value = '#';
+		anchor.setAttributeNode(classAttr);
+		classAttr = document.createAttribute("class");
+		classAttr.value = 'pure-menu-link';
+		anchor.setAttributeNode(classAttr);
+		classAttr = document.createAttribute("onclick");
+		classAttr.value = "document.getElementById('menuLink1').textContent = '"+  name +"'; return false;";
+		anchor.setAttributeNode(classAttr);
+		anchor.appendChild( document.createTextNode( name ) );
+	    menuItem.appendChild( anchor );	
+	}
+	
+	function pasteHandler( e ){
+		var z = e;
+		var i = 0;
+	
+	}
 
 	console.log('here');
 	var article = document.getElementById('rich_with_invoke_element'),
@@ -97,7 +139,10 @@
 			medium.select();
 		}
 	};
-
+	
+	for(var key in necrotemplate){
+		addTemplate( key );
+	}
 	processStyle( container, medium, article, '.hired' );
 	processStyle( container, medium, article, '.hiblue' );
 	processStyle( container, medium, article, '.higreen' );
@@ -119,6 +164,7 @@
 	};
 	container.querySelector( '.markup' ).onmousedown = generateMarkup;
 	container.querySelector( '.convert' ).onmousedown = convertNedit2ToHTML;
+	container.querySelector( '.template' ).onmousedown = useTemplate;
 })();
 </script> 
  </body>
