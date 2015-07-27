@@ -6,12 +6,12 @@ var editorFont = {
 
 //black
 var defaultFontColor = {
-	'color' : 'black'
+	'color' : 'FloralWhite'
 };
 
 //#F5F5F0'
 var textBGColor = {
-	'background-color' : '#F5F5F0'
+	'background-color' : '#696969'
 };
 //#FFF
 var windowBGColor = {
@@ -44,11 +44,13 @@ var himagenta = {
 	};
 	
 var hilight = {
-	'font-weight': 'bold'		
+	'font-weight': 'bold',
+	'color': 'white'	
 	};
 	
 var brown = {
-	'color': 'brown'
+	'color': 'brown',
+	'font-weight': 'normal'
 	};
 	
 var yellow = {
@@ -84,7 +86,6 @@ var magenta = {
 var hiblack = {
 	'font-weight': 'bold',
 	'color': 'black',
-	'background-color': 'white',
 	};
 
 var underline = {

@@ -97,6 +97,8 @@ TextRunFormattingMediator.prototype.generateMarkUpAlt = function( topElement, re
 		}
 		currentRun = currentRun.nextRun;
 	}
+	resultElement.appendChild( document.createElement('BR') );
+	resultElement.appendChild( document.createTextNode( '**' ) );
 }
 
 TextRunFormattingMediator.prototype.getStyleMarkupFor = function( run, topElement ){
