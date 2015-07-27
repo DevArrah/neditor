@@ -4,6 +4,7 @@ function NeditToHTMLConverter(){
 NeditToHTMLConverter.prototype.convertNeditMarkup = function( text, article ){
 	console.log( article.textContent.match(/@[a-zA-Z+]+:[^@]+@?/gi) );
 	var styleSegmenterRegex = /@([a-zA-Z+]+):([^@]+)@?/gi;
+	var oldStyleSegmenterRegex =/<([0-6])(.*?)>/gi;
 	var matches = text.match( styleSegmenterRegex );
 	var indices = new Array();
 	var segments = new Array();

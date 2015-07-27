@@ -1,3 +1,24 @@
+Defunct Colorizing (the old way)
+Below are the codes used for classic necrotext(tm) color codes.
+They are still supported for backward compatibility, but for all
+new files, standard 3K ansi codes (above) should be used.
+
+Raw text : <0glow>, <1yellow>, <2red>, <3blue>, <4green>, <5cyan>, <6magenta>
+Yields   : glow, yellow, red, blue, green, cyan, magenta
+
+  <5Area>         : Angelo (Fantasy)
+  <6Creator>      : Mischief
+  
+  The fabled town of Angelo still stands within the realm of Fantasy,
+  yet all is not well within its high brick walled interior.  The peasants
+  seem to exist in a state of constant fear and the guards stand vigilantly
+  on watch.  What could have happened to this place?  Seek and ye
+  might learn, but be warned.  The guards will protect their own, the
+  peasants will run from danger and other darker foes may await.
+  
+  <0See also:>  hammer_death (weapons)     armour_dragon (armour)
+             wzeliven_staff (weapons)   wzeliven (monsters)
+
   Here is the information about 'Format2' master.
 
  @hicyan:*@ Format for areas:
