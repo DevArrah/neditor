@@ -2,9 +2,18 @@ function NeditToHTMLConverter(){
 }
 
 NeditToHTMLConverter.prototype.convertNeditMarkup = function( text, article ){
-	console.log( article.textContent.match(/@[a-zA-Z+]+:[^@]+@?/gi) );
-	var styleSegmenterRegex = /@([a-zA-Z+]+):([^@]+)@?/gi;
+	//console.log( article.textContent.match(/@[a-zA-Z+]+:[^@]+@?/gi) );
+	var styleSegmenterPattern = '@([a-zA-Z+]+):([^@]+)@?';
+	var styleSegmenterRegex = new RegExp( styleSegmenterPattern, 'gi' );
 	var oldStyleSegmenterRegex =/<([0-6])(.*?)>/gi;
+	text = text.replace(/<0([\s\S]*?)>/mgi, '@hilite:$1@');
+	text = text.replace(/<1([\s\S]*?)>/mgi, '@yellow:$1@');
+	text = text.replace(/<2([\s\S]*?)>/mgi, '@red:$1@');
+	text = text.replace(/<3([\s\S]*?)>/mgi, '@blue:$1@');
+	text = text.replace(/<4([\s\S]*?)>/mgi, '@green:$1@');
+	text = text.replace(/<5([\s\S]*?)>/mgi, '@cyan:$1@');
+	text = text.replace(/<6([\s\S]*?)>/mgi, '@magenta:$1@');
+	
 	var matches = text.match( styleSegmenterRegex );
 	var indices = new Array();
 	var segments = new Array();
@@ -30,6 +39,7 @@ NeditToHTMLConverter.prototype.convertNeditMarkup = function( text, article ){
 		article.removeChild(article.firstChild);
 	}
 	//rebuild
+	styleSegmenterRegex = new RegExp( styleSegmenterPattern, 'i' );
 	for ( var i = 0; i < segments.length; i++){
 		var currentParent = article;
 		text = segments[i];
