@@ -19,32 +19,32 @@ var windowBGColor = {
 };
 
 var hired = {
-	'font-weight' : 'bold',
+	'font-weight' : 'bolder',
 	'color' : 'red'
 	};
 	
 var hiblue = {
-	'font-weight': 'bold',
+	'font-weight': 'bolder',
 	'color': 'blue'
 	};
 	
 var higreen = {
-	'font-weight': 'bold',
+	'font-weight': 'bolder',
 	'color': 'green'			
 	};
 	
 var hicyan = {
-	'font-weight': 'bold',
+	'font-weight': 'bolder',
 	'color': 'cyan'			
 	};
 	
 var himagenta = {
-	'font-weight': 'bold',
+	'font-weight': 'bolder',
 	'color': 'magenta'			
 	};
 	
 var hilight = {
-	'font-weight': 'bold',
+	'font-weight': 'bolder',
 	'color': 'white'	
 	};
 	
@@ -84,7 +84,7 @@ var magenta = {
 	};
 	
 var hiblack = {
-	'font-weight': 'bold',
+	'font-weight': 'bolder',
 	'color': 'black',
 	};
 
