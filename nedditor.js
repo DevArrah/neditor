@@ -47,12 +47,8 @@ function convertNedit2ToHTML(){
 	//converter.convertNeditMarkup();
 }
 
-function useTemplate(){
-	var article = document.getElementById('rich_with_invoke_element');
-	var templateName = document.getElementById('menuLink1').textContent;
+function useNamedTemplate( templateName ){
 	var converter = new NeditToHTMLConverter();
-	converter.convertNeditMarkup( necrotemplate[templateName], article );
-	
-	
+	converter.convertNeditMarkup( necrotemplate[templateName], document.getElementById('rich_with_invoke_element') );
 	
 }

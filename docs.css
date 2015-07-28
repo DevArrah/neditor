@@ -28,11 +28,6 @@ h1{
     display: inline-block;
     position: relative;
     }
-h1, h2, h3{
-    text-transform:uppercase;
-    font-weight:800;
-    font-family: 'Open Sans', sans-serif;
-    }
 h4{
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 0;
