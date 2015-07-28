@@ -9,7 +9,7 @@
 			button.pure-button.tbbutton{
 				border-radius: 10px;
 				text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-				font-size: 125%;
+				font-size: 100%;
 				padding: 5px 15px;
 				background-color: #C6C6C6;
 				margin-top: 10px;
@@ -35,7 +35,19 @@
 
 </head>
 <body class='background'>
-
+	<div class="pure-menu pure-menu-horizontal">
+		<ul class="pure-menu-list">
+			<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+				<a href="#" id="menuLink1" class="pure-menu-link" title="Select a template to use">Area</a>
+					<ul class="pure-menu-children" id='templatemenu'>
+					</ul>
+			</li>
+			<li class ="pure-menu-item"><a class="pure-menu-link" onclick="useTemplate();" title="replace the contents of the edit area with the selected template">Use Template</a></li>
+			<li class ="pure-menu-item"><a class="pure-menu-link" id="format" title="applies formatting rules to the edit area">Apply Formatting</a></li>
+			<li class ="pure-menu-item pure-menu-allow-hover"><a class="pure-menu-link" onclick="generateMarkup();" title="converts the styled text in the edit area into nedit markup">Generate Markup</a></li>
+			<li class ="pure-menu-item pure-menu-allow-hover"><a class="pure-menu-link" onclick="convertNedit2ToHTML();" title="the contents of the edit area from necro2 format to styled text">Convert Necro2</a></li>
+		</ul>
+	</div>
  <div class="toolbar-top">
 	<button class="yellow pure-button tbbutton" title="yellow">T</button>
 	<button class="brown pure-button tbbutton" title="yellow">H</button>
@@ -55,19 +67,7 @@
 	<button class="italics pure-button tbbutton" title="italics">S</button>
 	<br />
 
-	<div class="pure-menu pure-menu-horizontal">
-		<ul class="pure-menu-list">
-			<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-				<a href="#" id="menuLink1" class="pure-menu-link">Area</a>
-					<ul class="pure-menu-children" id='templatemenu'>
-					</ul>
-			</li>
-		</ul>
-		<button class="template pure-button tbbutton pure-button-primary" title="Use Template">Use Template</button>
-		<button class="formatting pure-button tbbutton pure-button-primary" title="Apply Formatting">Apply Formatting</button>
-		<button class="markup pure-button tbbutton pure-button-primary" title="Generate Markup">Generate Markup</button>
-		<button class="convert pure-button tbbutton pure-button-primary" title="Generate Markup">Convert Nedit2</button>
-	</div>
+
 				
 	
 	
@@ -75,7 +75,7 @@
   <div id="rich_with_invoke_element" class="article demo editorfont defaultfg defaultbg" style="text-align: left">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Fusce rutrum dapibus dictum?!?!?. Etiam tempor a enim id sagittis. Donec sodales varius elementum. In iaculis consequat enim, et pellentesque erat accumsan ut. Nulla nec lacus nisi.&nbsp;&nbsp;&nbsp;Nullam id interdum risus, sit amet sollicitudin ipsum. Ut vitae rutrum nulla.<br>
 <br>Vivamus eget dolor est. Donec lobortis felis metus, vel placerat nunc iaculis id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent eu neque dictum, pulvinar massa faucibus, accumsan diam. Vestibulum pharetra massa dolor, ut tincidunt nisl suscipit vitae.
   </div>
-  <h3 style="text-align: center;">Nedit Markup</h3>
+   <h2 style="text-align: center ">Nedit Markup</h2>
   <div id="results" class="article demo editorfont defaultfg defaultbg" caption="result" style="border: 2px solid black;border-radius: 10px;margin: 10px;" >
   <br />
   </div>
@@ -162,12 +162,9 @@
 	processStyle( container, medium, article, '.hiblack' );
 	processStyle( container, medium, article, '.italics' );
 	processStyle( container, medium, article, '.underline' );
-	container.querySelector( '.formatting' ).onmousedown = function(){
+	container.querySelector( '#format' ).onmousedown = function(){
 		checkFormatting( medium );
 	};
-	container.querySelector( '.markup' ).onmousedown = generateMarkup;
-	container.querySelector( '.convert' ).onmousedown = convertNedit2ToHTML;
-	container.querySelector( '.template' ).onmousedown = useTemplate;
 })();
 </script> 
  </body>
